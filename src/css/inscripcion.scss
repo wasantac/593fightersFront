@@ -1,0 +1,12 @@
+$gris: #E2E0E2;
+.fondo{
+    background-color: $gris;
+    width: 100vw;
+    height: 100vh;
+
+}
+.imgtorneo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
