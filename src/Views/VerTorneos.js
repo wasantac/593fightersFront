@@ -5,6 +5,7 @@ import TorneoItem from '../Components/TorneoItem';
 import axios from 'axios';
 import {Row} from 'react-bootstrap';
 import Gamebg from '../Components/Gamebg';
+import Footer from '../Components/Footer';
 let {REACT_APP_URL} = process.env;
 const VerTorneos = () => {
     const [torneo,setTorneo] = useState([]);
@@ -14,7 +15,7 @@ const VerTorneos = () => {
         })
     },[])
     return (
-        <div>
+        <div className="min-vh-100 d-flex flex-column">
             <Navegacion></Navegacion>
             <Gamebg></Gamebg>
             <Container className="mt-1">
@@ -27,7 +28,7 @@ const VerTorneos = () => {
             })}
             </Row>
             </Container>
-
+            <Footer></Footer>
         </div>
     );
 }

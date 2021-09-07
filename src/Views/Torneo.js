@@ -7,10 +7,24 @@ import {Container,Row,Col } from 'react-bootstrap';
 import FechaFormat from '../Components/FechaFormat';
 import FechaBadge from '../Components/FechaBadge';
 import Gamebg from '../Components/Gamebg';
+import Footer from '../Components/Footer';
 let {REACT_APP_URL} = process.env;
 const Torneo = () => {
     let {id} = useParams();
     const [torneo,setTorneo] = useState({participantes:[]});
+    let juegoTransform = (juego) => {
+        switch(juego){
+            case 'gg':{
+                return 'Guilty Gear Strive'
+            }
+            case 'dbfz':{
+                return 'Dragon Ball Fighter Z'
+            }
+            default:{
+                return juego
+            }
+        }
+    }
     useEffect(() => {
         axios.get(`https://${REACT_APP_URL}/torneos/${id}`).then(res =>{
             setTorneo(res.data);
@@ -21,28 +35,50 @@ const Torneo = () => {
         <div>
             <Navegacion></Navegacion>
             <Gamebg game={torneo.juego}></Gamebg>
-            <Container className="mt-2 card shadow p-5 contenedor">
+            <Container className="my-5 card shadow p-5 contenedor">
             <h1 className="text-center">{torneo.titulo} <FechaBadge fecha={torneo.fecha}></FechaBadge></h1>
             <h3>Descripción</h3>
             <p>{torneo.descripcion}</p>
-            <FechaFormat fecha={torneo.fecha}></FechaFormat>
-            <p>Juego: {torneo.juego}</p>
-            <div className="d-flex align-items-center justify-content-center my-2">
-                <Link to={`/inscripcion/${torneo._id}`} className="btn btn-primary px-5 py-3"><h4 className="m-0">¡Quiero Inscribirme!</h4></Link>
+            <Row className="text-center">
+                <Col >
+                <div className="card shadow p-3 border-secondary">
+                <h3>Juego</h3>
+                <p>{juegoTransform(torneo.juego)}</p>
+                </div>
+                </Col>
+                <Col>
+                    <div className="card shadow p-3 border-secondary">
+                    <h3>Fecha</h3><FechaFormat fecha={torneo.fecha}></FechaFormat>
+                    </div>
+                </Col>
+                <Col>
+                <div className="card shadow p-3 border-secondary">
+                <h3>Premio</h3><p>{torneo.premio}</p>
+                </div>
+                </Col>
+            </Row>
+
+            
+            <div className="d-flex align-items-center justify-content-center my-3">
+                {torneo.participantes.length < 30 ?                 
+                <Link to={`/inscripcion/${torneo._id}`} className="px-5 py-3 boton593"><h4 className="m-0">¡Quiero Inscribirme!</h4></Link>
+                :                 
+                <h4 className="m-0 px-5 py-3 boton593cerrado">Inscripciones Cerradas</h4> }
             </div>
-            <h3>Participantes (Total: {torneo.participantes.length})</h3>
+            <h3>Participantes (Total: {torneo.participantes.length}/{torneo.max})</h3>
             <Row className="borde">
-                {torneo.participantes.map((item,key) => {
+                {torneo.participantes.length > 0 ? torneo.participantes.map((item,key) => {
                     return(
-                      <Col md={3} sm={6} className="columna">
+                      <Col md={3} sm={6} className="columna" key={key}>
                           <div className="participante">
                           <p className="my-2 text-center">{item.nombre} ({item.nick})</p>
                           </div>
                       </Col>  
                     )
-                })}
+                }) : <p>No hay participantes inscritos por el momento.</p>}
             </Row>
             </Container>
+            <Footer></Footer>
         </div>
     );
 }

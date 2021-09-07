@@ -15,8 +15,8 @@ const Navegacion = () => {
                 <Nav className="me-auto">
                 <Nav.Link href="/" className="text-center"><span className="blanco-nav">Inicio</span></Nav.Link>
                 <Nav.Link href="/torneos" className="text-center"><span className="blanco-nav">Torneos</span></Nav.Link>
-                <Nav.Link href="/" className="text-center"><span className="blanco-nav">Nosotros</span></Nav.Link>
-                <Nav.Link href="/" className="text-center"><span className="blanco-nav">Tabla Ranked</span></Nav.Link>
+                <Nav.Link href="/nosotros" className="text-center"><span className="blanco-nav">Nosotros</span></Nav.Link>
+                <Nav.Link href="/tabla-ranked" className="text-center"><span className="blanco-nav">Tabla Ranked</span></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>

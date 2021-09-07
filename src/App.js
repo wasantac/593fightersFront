@@ -8,7 +8,8 @@ import Inscripcion from './Views/Inscripcion';
 import Home from './Views/Home';
 import Torneo from './Views/Torneo';
 import VerTorneos from './Views/VerTorneos';
-
+import Nosotros from './Views/Nosotros';
+import TablaRanked from './Views/TablaRanked';
 function App() {
   return (
     <div>
@@ -18,6 +19,8 @@ function App() {
           <Route exact path="/inscripcion/:id" component={Inscripcion} ></Route>
           <Route exact path="/torneo/:id" component={Torneo}></Route>
           <Route exact path="/torneos" component={VerTorneos}></Route>
+          <Route exact path="/nosotros" component={Nosotros}></Route>
+          <Route exact path="/tabla-ranked" component={TablaRanked}></Route>
         </Switch>
       </Router>
     </div>
