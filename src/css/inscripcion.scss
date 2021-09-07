@@ -3,10 +3,19 @@ $gris: #E2E0E2;
     background-color: $gris;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 
 }
 .imgtorneo{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: auto;
+    opacity: 0.1;
+    overflow: hidden;
+}
+.tarjeta{
+    z-index: 1;
 }
