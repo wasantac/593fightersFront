@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import TorneoItem from '../Components/TorneoItem';
 import axios from 'axios';
 import {Row} from 'react-bootstrap';
+import Gamebg from '../Components/Gamebg';
 let {REACT_APP_URL} = process.env;
 const VerTorneos = () => {
     const [torneo,setTorneo] = useState([]);
@@ -15,6 +16,7 @@ const VerTorneos = () => {
     return (
         <div>
             <Navegacion></Navegacion>
+            <Gamebg></Gamebg>
             <Container className="mt-1">
             <h1>Torneos Actuales</h1>
             <Row>

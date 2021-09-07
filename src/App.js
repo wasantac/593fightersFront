@@ -9,6 +9,7 @@ import Inscripcion from './Views/Inscripcion';
 import Home from './Views/Home';
 import Torneo from './Views/Torneo';
 import VerTorneos from './Views/VerTorneos';
+
 function App() {
   return (
     <div>

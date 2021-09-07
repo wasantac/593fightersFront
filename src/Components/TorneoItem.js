@@ -21,7 +21,7 @@ const TorneoItem = ({torneo}) => {
     }
     return (
         <React.Fragment>
-            <Col md={4}>
+            <Col md={4} className="my-2">
             <Link to={`torneo/${torneo._id}`} className="item">
             <div className="card shadow p-4">
                 <h1 className="text-center">{torneo.titulo}</h1>
