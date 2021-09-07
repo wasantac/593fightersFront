@@ -8,7 +8,7 @@ const Navegacion = () => {
         <Navbar variant="dark" className="fibra shadow" collapseOnSelect expand="lg">
             <Container>
             <Navbar.Brand href="/">
-                <img src={logo} alt="593Fihters" className="navbrand593"  width="auto" height="36rem"className="d-inline-block align-top"></img>
+                <img src={logo} alt="593Fihters" width="auto" height="36rem" className="d-inline-block align-top"></img>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse>

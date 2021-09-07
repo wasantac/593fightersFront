@@ -3,7 +3,7 @@ import '../css/torneo.scss'
 import axios from 'axios';
 import {useParams,Link} from 'react-router-dom';
 import Navegacion from '../Components/Navegacion';
-import { Nav,Container,Button,Row,Col } from 'react-bootstrap';
+import {Container,Row,Col } from 'react-bootstrap';
 import FechaFormat from '../Components/FechaFormat';
 import FechaBadge from '../Components/FechaBadge';
 import Gamebg from '../Components/Gamebg';

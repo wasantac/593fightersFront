@@ -4,11 +4,6 @@ import {Link} from 'react-router-dom';
 import '../css/torneoitem.scss';
 import FechaBadge from './FechaBadge';
 const TorneoItem = ({torneo}) => {
-    let checkFecha = () => {
-        const dateObj = new Date(torneo.fecha);
-        const now = Date.now();
-        return dateObj - now;
-    }
     let mejorarFecha = () =>{
         const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
         "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
