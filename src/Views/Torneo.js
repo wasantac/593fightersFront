@@ -12,7 +12,7 @@ const Torneo = () => {
     let {id} = useParams();
     const [torneo,setTorneo] = useState({participantes:[]});
     useEffect(() => {
-        axios.get(`http://${REACT_APP_URL}/torneos/${id}`).then(res =>{
+        axios.get(`https://${REACT_APP_URL}/torneos/${id}`).then(res =>{
             setTorneo(res.data);
             console.log(res.data.participantes)
         })

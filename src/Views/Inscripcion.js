@@ -17,7 +17,7 @@ const Inscripcion = () => {
     const [torneo,setTorneo] = useState({});
     useEffect(()=>{
         if(!load){
-            axios.get(`http://${REACT_APP_URL}/torneos/${id}`).then(res => {
+            axios.get(`https://${REACT_APP_URL}/torneos/${id}`).then(res => {
                 setTorneo(res.data)
             });
             setLoad(true)
@@ -28,7 +28,7 @@ const Inscripcion = () => {
         let nick = event.target[1].value;
         let correo = event.target[2].value;
         let whats = event.target[3].value;
-        axios.put(`http://${REACT_APP_URL}/torneos/${id}`,{
+        axios.put(`https://${REACT_APP_URL}/torneos/${id}`,{
             nombre,
             nick,
             correo,

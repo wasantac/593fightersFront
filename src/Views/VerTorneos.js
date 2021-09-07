@@ -9,7 +9,7 @@ let {REACT_APP_URL} = process.env;
 const VerTorneos = () => {
     const [torneo,setTorneo] = useState([]);
     useEffect(() => {
-        axios.get(`http://${REACT_APP_URL}/torneos`).then(res => {
+        axios.get(`https://${REACT_APP_URL}/torneos`).then(res => {
             setTorneo(res.data)
         })
     },[])
