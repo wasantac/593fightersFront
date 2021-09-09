@@ -1,41 +1,41 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
+import logo from '../593logo.png'
+import gg from '../assets/guiltygear.png';
+import dbfz from '../assets/dragonball.jpg';
+import '../css/carousel.scss';
 const Carousel593 = () => {
     return (
         <Carousel>
-            <Carousel.Item>
+            <Carousel.Item className=" ratio ratio-16x9">
                 <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/800x400"
+                className="imagen"
+                src={logo}
                 alt="First slide"
                 />
                 <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className=" ratio ratio-16x9">
                 <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/800x400"
+                className="imagen"
+                src={gg}
                 alt="Second slide"
                 />
 
-                <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <Carousel.Caption className="black-t">
+                <h3>¡Torneos Próximamente!</h3>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className=" ratio ratio-16x9">
                 <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/800x400"
+                className="imagen"
+                src={dbfz}
                 alt="Third slide"
                 />
 
-                <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <Carousel.Caption className="black-t">
+                <h3>¡Torneos Próximamente!</h3>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
