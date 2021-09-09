@@ -2,20 +2,19 @@ import React,{useEffect} from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../593logocompresed.png';
 import {Container,Nav} from 'react-bootstrap';
-import axios from 'axios';
 import '../css/navegacion.scss';
 import {useDispatch,useSelector} from 'react-redux'
 import {obtenerSessionAccion} from '../redux/sessionDuck';
 const Navegacion = () => {
     const dispatch = useDispatch();
     const session = useSelector(store => store.session)
+    console.log(session)
     useEffect(() => {
         dispatch(obtenerSessionAccion())
     },[dispatch])
     let cerrarSesion = () => {
-        axios.get('/login/logout',{withCredentials:true}).then(res =>{
-            window.location.reload();
-        })
+        localStorage.removeItem('token')
+        window.location.reload()
     }
     return (
         <Navbar variant="dark" className="fibra shadow" collapseOnSelect expand="lg">

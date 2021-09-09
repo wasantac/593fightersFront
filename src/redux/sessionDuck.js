@@ -1,7 +1,7 @@
 // constantes
 import axios from 'axios';
 const dataInicial = {
-    isSession : false
+    isSession : false,
 }
 
 const SESSION_EXITO = 'SESSION_EXITO'
@@ -21,21 +21,24 @@ export default function sessionReducer(state = dataInicial.isSession,action){
 }
 //acciones
 export const obtenerSessionAccion = () => async (dispatch,getState) => {
-    await axios.get('/login',{withCredentials:true}).then(res =>{
-        if(res.data.data){
+    if(localStorage.getItem('token')){
+        await axios.get(`/login/profile?token=${localStorage.getItem('token')}`).then(res =>{
             dispatch({
                 type: SESSION_EXITO,
-                payload: res.data.data
+                payload: true
             })
-        }
-        else{
+    
+        }).catch((err) =>{
             dispatch({
                 type: SESSION_FAIL,
-                payload : res.data.data
+                payload: false
             })
-        }
+        })
+    }else{
+        dispatch({
+            type: SESSION_FAIL,
+            payload: false
+        })
+    }
 
-    }).catch((err) =>{
-        console.log(err)
-    })
 }

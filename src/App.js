@@ -14,6 +14,7 @@ import Login from './Views/Login';
 import axios from 'axios';
 import {Provider} from 'react-redux';
 import generateStore from './redux/store';
+import Registro from './Views/Registro';
 let {REACT_APP_URL} = process.env;
 axios.defaults.baseURL =REACT_APP_URL;
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/nosotros" component={Nosotros}></Route>
           <Route exact path="/tabla-ranked" component={TablaRanked}></Route>
           <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/registro" component={Registro}></Route>
         </Switch>
       </Router>
     </Provider>
