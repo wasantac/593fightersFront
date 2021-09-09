@@ -6,11 +6,10 @@ import axios from 'axios';
 import {Row} from 'react-bootstrap';
 import Gamebg from '../Components/Gamebg';
 import Footer from '../Components/Footer';
-let {REACT_APP_URL} = process.env;
 const VerTorneos = () => {
     const [torneo,setTorneo] = useState([]);
     useEffect(() => {
-        axios.get(`https://${REACT_APP_URL}/torneos`).then(res => {
+        axios.get(`/torneos`).then(res => {
             setTorneo(res.data)
         })
     },[])

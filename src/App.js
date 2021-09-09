@@ -10,9 +10,16 @@ import Torneo from './Views/Torneo';
 import VerTorneos from './Views/VerTorneos';
 import Nosotros from './Views/Nosotros';
 import TablaRanked from './Views/TablaRanked';
+import Login from './Views/Login';
+import axios from 'axios';
+import {Provider} from 'react-redux';
+import generateStore from './redux/store';
+let {REACT_APP_URL} = process.env;
+axios.defaults.baseURL =REACT_APP_URL;
 function App() {
+  const store = generateStore()
   return (
-    <div>
+    <Provider store={store}>
       <Router>
         <Switch>
           <Route exact path="/" component={Home} ></Route>
@@ -21,9 +28,10 @@ function App() {
           <Route exact path="/torneos" component={VerTorneos}></Route>
           <Route exact path="/nosotros" component={Nosotros}></Route>
           <Route exact path="/tabla-ranked" component={TablaRanked}></Route>
+          <Route exact path="/login" component={Login}></Route>
         </Switch>
       </Router>
-    </div>
+    </Provider>
   );
 }
 

@@ -8,7 +8,6 @@ import FechaFormat from '../Components/FechaFormat';
 import FechaBadge from '../Components/FechaBadge';
 import Gamebg from '../Components/Gamebg';
 import Footer from '../Components/Footer';
-let {REACT_APP_URL} = process.env;
 const Torneo = () => {
     let {id} = useParams();
     const [torneo,setTorneo] = useState({participantes:[]});
@@ -26,7 +25,7 @@ const Torneo = () => {
         }
     }
     useEffect(() => {
-        axios.get(`https://${REACT_APP_URL}/torneos/${id}`).then(res =>{
+        axios.get(`/torneos/${id}`).then(res =>{
             setTorneo(res.data);
             console.log(res.data.participantes)
         })
@@ -40,18 +39,18 @@ const Torneo = () => {
             <h3>Descripción</h3>
             <p>{torneo.descripcion}</p>
             <Row className="text-center">
-                <Col >
+                <Col className="my-2">
                 <div className="card shadow p-3 border-secondary">
                 <h3>Juego</h3>
                 <p>{juegoTransform(torneo.juego)}</p>
                 </div>
                 </Col>
-                <Col>
+                <Col className="my-2">
                     <div className="card shadow p-3 border-secondary">
                     <h3>Fecha</h3><FechaFormat fecha={torneo.fecha}></FechaFormat>
                     </div>
                 </Col>
-                <Col>
+                <Col className="my-2">
                 <div className="card shadow p-3 border-secondary">
                 <h3>Premio</h3><p>{torneo.premio}</p>
                 </div>

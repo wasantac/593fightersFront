@@ -9,7 +9,6 @@ import axios from 'axios';
 import FechaFormat from '../Components/FechaFormat';
 import Swal from 'sweetalert2'
 import Gamebg from '../Components/Gamebg';
-let {REACT_APP_URL} = process.env;
 const Inscripcion = () => {
     let {id} = useParams();
     const history = useHistory();
@@ -17,7 +16,7 @@ const Inscripcion = () => {
     const [torneo,setTorneo] = useState({});
     useEffect(()=>{
         if(!load){
-            axios.get(`https://${REACT_APP_URL}/torneos/${id}`).then(res => {
+            axios.get(`/torneos/${id}`).then(res => {
                 setTorneo(res.data)
             });
             setLoad(true)
@@ -28,7 +27,7 @@ const Inscripcion = () => {
         let nick = event.target[1].value;
         let correo = event.target[2].value;
         let whats = event.target[3].value;
-        axios.put(`https://${REACT_APP_URL}/torneos/${id}`,{
+        axios.put(`/torneos/${id}`,{
             nombre,
             nick,
             correo,

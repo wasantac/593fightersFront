@@ -14,3 +14,15 @@
     color:red !important;
     transition: 0.3s ease;
 }
+.usuario{
+    color: white !important;
+    font-family: Roboto,sans-serif !important;
+    transition: 0.3s ease;
+    background-color: red !important;
+    border-radius: 3px !important;
+    text-align: center !important;
+}
+.usuario:hover{
+    background-color: rgb(255, 61, 61) !important;
+    transition: 0.3s ease;
+}
