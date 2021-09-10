@@ -13,12 +13,31 @@ const Inscripcion = () => {
     let {id} = useParams();
     const history = useHistory();
     const [load,setLoad] = useState(false);
+    const [nombre,setNombre] = useState('')
+    const [nick,setNick] = useState('')
+    const [correo,setCorreo] = useState('')
+    const [whats,setWhats] = useState('')
+    const [isUser,setIsUser] = useState(false);
     const [torneo,setTorneo] = useState({});
     useEffect(()=>{
         if(!load){
             axios.get(`/torneos/${id}`).then(res => {
                 setTorneo(res.data)
             });
+            axios.get(`/users/id?token=${localStorage.getItem('token')}`).then(res => {
+                console.log(res.data)
+                setIsUser(true)
+                setNick(res.data.nick)
+                if(res.data.nombre){
+                    setNombre(res.data.nombre)
+                }
+                if(res.data.whats){
+                    setWhats(res.data.whats)
+                }
+                if(res.data.correo){
+                    setCorreo(res.data.correo)
+                }
+            })
             setLoad(true)
         }
     },[id,load])
@@ -33,13 +52,25 @@ const Inscripcion = () => {
             correo,
             whats
         }).then(res => {
-            Swal.fire(
-                '¡Gracias Por Registrarte!',
-                'Te esperamos en el torneo :)',
-                'success'
-            ).then(() =>{
-                history.push(`/torneo/${id}`)
-            });
+            console.log(res.data)
+            if(res.data === false){
+                Swal.fire(
+                    '¡Ya estas registrado!',
+                    'Te esperamos en el torneo :)',
+                    'error'
+                ).then(() =>{
+                    history.push(`/torneo/${id}`)
+                });
+            }else{
+                Swal.fire(
+                    '¡Gracias Por Registrarte!',
+                    'Te esperamos en el torneo :)',
+                    'success'
+                ).then(() =>{
+                    history.push(`/torneo/${id}`)
+                });
+            }
+
         })
         event.preventDefault();
     }
@@ -57,25 +88,25 @@ const Inscripcion = () => {
                 <Col md={12}>
                 <Form.Group className="mb-2" controlId="nombre">
                     <Form.Label>Nombre</Form.Label>
-                    <Form.Control type="text" name="nombre" required></Form.Control>
+                    <Form.Control type="text" name="nombre" required onChange={e => setNombre(e.target.value)} value={nombre}></Form.Control>
                 </Form.Group> 
                 </Col>
                 <Col md={12}>
                 <Form.Group className="mb-2">
                     <Form.Label>Nick (PS4)</Form.Label>
-                    <Form.Control type="text" name="nick" required></Form.Control>
+                    <Form.Control type="text" name="nick" disabled={isUser} required onChange={e => setNick(e.target.value)} value={nick}></Form.Control>
                 </Form.Group> 
                 </Col>
                 <Col md={12}>
                 <Form.Group className="mb-2">
                     <Form.Label>Correo</Form.Label>
-                    <Form.Control type="email" name="correo" required></Form.Control>
+                    <Form.Control type="email" name="correo" required onChange={e => setCorreo(e.target.value)} value={correo}></Form.Control>
                 </Form.Group> 
                 </Col>
                 <Col md={12}>
                 <Form.Group className="mb-2">
                     <Form.Label>Whatsapp</Form.Label>
-                    <Form.Control type="text" name="whats" required></Form.Control>
+                    <Form.Control type="text" name="whats" required onChange={e => setWhats(e.target.value)} value={whats}></Form.Control>
                 </Form.Group> 
                 </Col>
                 </Row>

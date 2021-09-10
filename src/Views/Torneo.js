@@ -11,6 +11,7 @@ import Footer from '../Components/Footer';
 const Torneo = () => {
     let {id} = useParams();
     const [torneo,setTorneo] = useState({participantes:[]});
+    const [isUser,setIsUser] = useState(true);
     let juegoTransform = (juego) => {
         switch(juego){
             case 'gg':{
@@ -27,8 +28,11 @@ const Torneo = () => {
     useEffect(() => {
         axios.get(`/torneos/${id}`).then(res =>{
             setTorneo(res.data);
-            console.log(res.data.participantes)
         })
+        axios.get(`/torneos/${id}/validar?token=${localStorage.getItem('token')}`).then(res =>{
+            setIsUser(res.data)
+        })
+
     },[id])
     return (
         <div>
@@ -59,10 +63,10 @@ const Torneo = () => {
 
             
             <div className="d-flex align-items-center justify-content-center my-3">
-                {torneo.participantes.length < 30 ?                 
+                {torneo.participantes.length < 30 && isUser ?                 
                 <Link to={`/inscripcion/${torneo._id}`} className="px-5 py-3 boton593"><h4 className="m-0">¡Quiero Inscribirme!</h4></Link>
                 :                 
-                <h4 className="m-0 px-5 py-3 boton593cerrado">Inscripciones Cerradas</h4> }
+                <h4 className="m-0 px-5 py-3 boton593cerrado">{isUser ? "Inscripciones Cerradas": "Ya estas Inscrito"}</h4> }
             </div>
             <h3>Participantes (Total: {torneo.participantes.length}/{torneo.max})</h3>
             <Row className="borde">
