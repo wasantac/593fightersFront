@@ -2,7 +2,8 @@ import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import Inscripcion from './Views/Inscripcion';
 import Home from './Views/Home';
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/registro" component={Registro}></Route>
           <Route exact path="/perfil" component={Perfil}></Route>
+          <Route render={() => <Redirect to="/" />} />
         </Switch>
       </Router>
     </Provider>
