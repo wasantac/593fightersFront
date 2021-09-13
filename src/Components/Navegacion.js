@@ -8,7 +8,6 @@ import {obtenerSessionAccion} from '../redux/sessionDuck';
 const Navegacion = () => {
     const dispatch = useDispatch();
     const session = useSelector(store => store.session)
-    console.log(session)
     useEffect(() => {
         dispatch(obtenerSessionAccion())
     },[dispatch])

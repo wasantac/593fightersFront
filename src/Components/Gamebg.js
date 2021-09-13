@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useMemo} from 'react';
 import '../css/game.scss';
 import gg from '../assets/guiltygear.png';
 import dbfz from '../assets/dragonball.jpg';
 import fondo from '../assets/fondo.png'
 const Gamebg = ({game}) => {
-    let fondoLogic = () => {
+    let fondoLogic = useMemo(() => {
         switch(game){
             case 'gg':{
                 return gg;
@@ -19,10 +19,11 @@ const Gamebg = ({game}) => {
                 return fondo;
             }
         }
-    }
+
+    },[game])
     return (
         <div className='juego'>
-            <img src={fondoLogic()} alt="" className='imagen'></img>
+            <img src={fondoLogic} alt="" className='imagen'></img>
         </div>
     );
 }
