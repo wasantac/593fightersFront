@@ -1,29 +1,37 @@
-import React,{useMemo} from 'react';
+import React, { useMemo } from 'react';
 import '../css/game.scss';
 import gg from '../assets/guiltygear.png';
 import dbfz from '../assets/dragonball.jpg';
-import fondo from '../assets/fondo.png'
-const Gamebg = ({game}) => {
+
+const Gamebg = ({ game }) => {
+    let lines = []
+    for (let i = 0; i < 49; i++) {
+        lines.push(<span className="circle" key={i}></span>)
+    }
     let fondoLogic = useMemo(() => {
-        switch(game){
-            case 'gg':{
+        console.log(game)
+        switch (game) {
+            case 'gg': {
                 return gg;
             }
-            case 'dbfz':{
+            case 'dbfz': {
                 return dbfz;
             }
-            case '593':{
-                return fondo;
+            case 'db': {
+                return dbfz;
             }
-            default:{
-                return fondo;
+            default: {
+                return '';
             }
         }
 
-    },[game])
+    }, [game])
     return (
         <div className='juego'>
-            <img src={fondoLogic} alt="" className='imagen'></img>
+            {fondoLogic ? <img src={fondoLogic} alt="" className='imagen'></img> : <div className='particles-bg'>
+                {lines.map(item => {
+                    return item
+                })}</div>}
         </div>
     );
 }

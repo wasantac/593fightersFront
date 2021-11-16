@@ -6,8 +6,8 @@ const TablaRanked = () => {
         <div>
             <Navegacion></Navegacion>
             <Gamebg></Gamebg>
-            <div  className="w-100 d-flex align-items-center justify-content-center">
-                <h1 className="mt-5">Proximamente...</h1>
+            <div className="w-100 d-flex align-items-center justify-content-center">
+                <h1 className="mt-5 text-white">Proximamente...</h1>
             </div>
         </div>
     );

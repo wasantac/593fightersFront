@@ -1,40 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-.participante{
-    font-family: Roboto, Sans-serif;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+$red: #d52138;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.participante {
+  font-family: Roboto, Sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.columna{
-    background: rgba(211, 211, 211, 0.438);
-    border: 1px solid grey;
+.columna {
+  background: rgba(211, 211, 211, 0.438);
+  border: 1px solid grey;
 }
-.contenedor{
-    background-color: rgba(255, 255, 255, 0.95) !important;
+.contenedor {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  min-height: 100vh;
 }
 
-.boton593{
-    text-decoration: none;
-    background-color:red;
-    border-radius: 10px;
-    color:white;
-    transition: 0.1s ease;
+.boton593 {
+  text-decoration: none;
+  background-color: $red;
+  border-radius: 10px;
+  color: white;
+  transition: 0.1s ease;
 }
-.boton593cerrado{
-    text-decoration: none;
-    background-color:rgb(255, 238, 0);
-    border-radius: 10px;
-    color:black;
-    transition: 0.1s ease;
+.boton593cerrado {
+  text-decoration: none;
+  background-color: rgb(255, 238, 0);
+  border-radius: 10px;
+  color: black;
+  transition: 0.1s ease;
 }
-.boton593:hover{
-    background-color:rgb(255, 89, 89);
-    color:white;
-    transition: 0.1s ease;
+.boton593:hover {
+  background-color: rgb(255, 89, 89);
+  color: white;
+  transition: 0.1s ease;
 }
-.boton593:active{
-    transform: scale(.95);
-    transition: 0.1s ease;
+.boton593:active {
+  transform: scale(0.95);
+  transition: 0.1s ease;
 }

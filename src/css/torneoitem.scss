@@ -1,19 +1,26 @@
-.item{
-    color:inherit;
-    text-decoration: none;
+.item {
+  color: inherit;
+  text-decoration: none;
 }
-.item:hover{
-    color: inherit;
+.item:hover {
+  color: inherit;
 }
-.ocultartexto{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* number of lines to show */
-    -webkit-box-orient: vertical;
+.ocultartexto {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
-.columna{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.columna {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarjeta {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
