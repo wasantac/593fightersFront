@@ -1,17 +1,11 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../GoGoNBG.png';
 import { Container, Nav } from 'react-bootstrap';
 import '../css/navegacion.scss';
-import { useDispatch, useSelector } from 'react-redux'
-import { obtenerSessionAccion } from '../redux/sessionDuck';
-const Navegacion = () => {
-    const dispatch = useDispatch();
-    const session = useSelector(store => store.session);
 
-    useLayoutEffect(() => {
-        dispatch(obtenerSessionAccion())
-    }, [dispatch])
+const Navegacion = () => {
+
     let cerrarSesion = () => {
         localStorage.removeItem('token')
         window.location.reload()
@@ -32,7 +26,7 @@ const Navegacion = () => {
                     </Nav>
                     <Nav>
 
-                        {session.isSession ? <React.Fragment>
+                        {localStorage.getItem('token') ? <React.Fragment>
                             <Nav.Link href="/perfil" className="usuario">
                                 Perfil
                             </Nav.Link>

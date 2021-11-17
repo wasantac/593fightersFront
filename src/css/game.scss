@@ -50,7 +50,11 @@ $red: #ef233c;
     animation-name: circle#{$i};
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-duration: $i * 0.3s;
+    @if $i < 5 {
+      animation-duration: 5 * 0.3s;
+    } @else {
+      animation-duration: $i * 0.3s;
+    }
     opacity: 0.5;
   }
 }

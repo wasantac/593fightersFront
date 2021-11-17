@@ -13,14 +13,15 @@ import Nosotros from './Views/Nosotros';
 import TablaRanked from './Views/TablaRanked';
 import Login from './Views/Login';
 import axios from 'axios';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import generateStore from './redux/store';
 import Registro from './Views/Registro';
 import Perfil from './Views/Perfil';
-let {REACT_APP_URL} = process.env;
-axios.defaults.baseURL =REACT_APP_URL;
+let { REACT_APP_URL } = process.env;
+axios.defaults.baseURL = REACT_APP_URL;
 function App() {
   const store = generateStore()
+
   return (
     <Provider store={store}>
       <Router>
