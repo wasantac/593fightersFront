@@ -3,9 +3,10 @@ import Navegacion from '../Components/Navegacion';
 import Container from 'react-bootstrap/Container';
 import TorneoItem from '../Components/TorneoItem';
 import axios from 'axios';
-import { Row, Spinner } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Gamebg from '../Components/Gamebg';
 import Footer from '../Components/Footer';
+import { GuardSpinner } from 'react-spinners-kit'
 const VerTorneos = () => {
     const [torneo, setTorneo] = useState([]);
     const [load, setLoad] = useState(false);
@@ -30,8 +31,9 @@ const VerTorneos = () => {
                         })}
                     </Row> :
                     <div className="d-flex align-items-center justify-content-center h-100">
-                        <Spinner animation="grow" />
+                        <GuardSpinner size={30} frontColor="#ef233c" />
                     </div>}
+
             </Container>
             <Footer></Footer>
         </div>
