@@ -17,14 +17,17 @@ const TorneoItem = ({ torneo }) => {
     }
     return (
         <React.Fragment>
-            <Col lg={4} className="my-2">
-                <Link to={`torneo/${torneo._id}`} className="item">
+            <Col lg={4} className="my-2 agrandar-item">
+                <Link to={`torneo/${torneo._id}`} className="item ">
                     <div className="card shadow p-4 tarjeta">
                         <h1 className="text-center">{torneo.titulo}</h1>
                         <Container>
                             <h3 className="card text-center p-2 bg-danger text-white">{torneo.premio}</h3>
                         </Container>
-                        <h5 className="text-center">{mejorarFecha()} <FechaBadge fecha={torneo.fecha}></FechaBadge></h5>
+                        <h5 className="text-center d-flex align-items-center justify-content-center">
+                            <span className="px-2">{mejorarFecha()}</span>
+                            <FechaBadge fecha={torneo.fecha}></FechaBadge>
+                        </h5>
                     </div>
                 </Link>
             </Col>

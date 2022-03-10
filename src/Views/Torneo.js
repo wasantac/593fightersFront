@@ -39,7 +39,10 @@ const Torneo = () => {
             <Navegacion></Navegacion>
             <Gamebg game={torneo.juego}></Gamebg>
             <Container className="my-5 card shadow p-5 contenedor">
-                <h1 className="text-center">{torneo.titulo} <FechaBadge fecha={torneo.fecha}></FechaBadge></h1>
+                <h1 className="text-center d-flex align-items-center justify-content-center">
+                    <span className="px-3">{torneo.titulo}</span> 
+                    <FechaBadge fecha={torneo.fecha}></FechaBadge>
+                </h1>
                 <h3>Descripción</h3>
                 <p>{torneo.descripcion}</p>
                 <Row className="text-center">

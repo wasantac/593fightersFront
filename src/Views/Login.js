@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import '../css/inscripcion.scss';
 import Form from 'react-bootstrap/Form';
@@ -11,17 +11,20 @@ import Gamebg from '../Components/Gamebg';
 
 const Login = () => {
     const history = useHistory();
-
+    const [error,setError] = useState(false);
     let handleSubmit = (event) => {
         let username = event.target[0].value;
         let password = event.target[1].value;
+        setError(false)
         axios.post(`/login`, {
             username,
             password,
         }).then(res => {
             localStorage.setItem('token', res.data.token)
             history.push(`/`)
-        })
+        }).catch(e =>{
+            setError(true)
+        }) 
         event.preventDefault();
     }
     return (
@@ -50,7 +53,9 @@ const Login = () => {
                                 <Button type="submit" >Iniciar Sesión
                                 </Button>
                                 <a href="/registro" className="mt-2 text-decoration-none">¡No tienes cuenta? Da click aquí.</a>
+                                
                             </div>
+                            {error && <p className="d-flex align-items-center justify-content-center text-danger">Su usuario/contraseña son incorrectos.</p>}
                         </Col>
 
                     </Form>
